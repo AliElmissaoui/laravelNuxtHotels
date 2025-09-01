@@ -13,12 +13,12 @@ services:
 
   nuxt:
     build:
-      context: ./nuxtHotels   # الباث ديال مشروع Nuxt
+      context: ./nuxt-app   # الباث ديال مشروع Nuxt
     container_name: nuxt-app-dev
     ports:
       - "3000:3000"
     volumes:
-      - ./nuxtHotels:/app
+      - ./nuxt-app:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development
