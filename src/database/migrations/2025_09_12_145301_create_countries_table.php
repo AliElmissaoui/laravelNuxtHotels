@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->id();
-             $table->foreignId('reservation_id')->constrained()->cascadeOnDelete();
-            $table->decimal('amount', 10, 2);
-            $table->string('method');
-            $table->enum('status', ['pending','paid','failed'])->default('pending');
+            $table->string('name');
+            $table->string('code', 5)->unique();
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('countries');
     }
 };

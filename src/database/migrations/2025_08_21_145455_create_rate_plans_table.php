@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('rate_plans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('hotel_id')->constrained()->cascadeOnDelete();
+            $table->string('name');
+            $table->decimal('price', 10, 2);
+            $table->boolean('is_refundable')->default(true);
             $table->timestamps();
         });
     }

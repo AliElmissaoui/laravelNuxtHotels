@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('room_type_id')->constrained()->cascadeOnDelete();
+            $table->string('number')->nullable();
+            $table->enum('status', ['available', 'occupied', 'maintenance'])->default('available');
             $table->timestamps();
         });
     }

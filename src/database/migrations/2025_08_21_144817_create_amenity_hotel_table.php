@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('amenity_hotel', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('amenity_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('hotel_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

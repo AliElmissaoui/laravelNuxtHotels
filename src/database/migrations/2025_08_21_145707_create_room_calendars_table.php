@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('room_calendars', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('room_id')->constrained()->cascadeOnDelete();
+            $table->date('date');
+            $table->enum('status', ['available','booked','blocked'])->default('available');
             $table->timestamps();
         });
     }

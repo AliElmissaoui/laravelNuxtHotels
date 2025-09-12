@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('hotel_id')->constrained()->cascadeOnDelete();
+            $table->date('check_in');
+            $table->date('check_out');
+            $table->enum('status', ['pending','confirmed','cancelled'])->default('pending');
             $table->timestamps();
         });
     }

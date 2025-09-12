@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('rate_overrides', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('rate_plan_id')->constrained()->cascadeOnDelete();
+            $table->date('date');
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }
