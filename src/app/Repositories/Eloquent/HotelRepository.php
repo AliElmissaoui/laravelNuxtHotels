@@ -7,9 +7,10 @@ use App\Models\Hotel;
 
 class HotelRepository implements HotelRepositoryInterface
 {
-    public function all()
+    public function all($perPage = 10)
     {
-        return Hotel::all();
+        return Hotel::with(['address.city.country', 'hotelPhotos', 'amenities', 'roomTypes'])
+            ->paginate($perPage);
     }
 
     public function find(int $id)
