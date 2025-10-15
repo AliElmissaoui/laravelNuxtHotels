@@ -1,9 +1,10 @@
-version: "3.9"
+# version: "3.9"
 
 services:
   app:
     build:
       context: ./src
+      dockerfile: Dockerfile
     container_name: laravel-app
     working_dir: /var/www
     volumes:
@@ -13,7 +14,9 @@ services:
 
   nuxt:
     build:
-      context: ./nuxt-app   # الباث ديال مشروع Nuxt
+      context: ./nuxt-app
+      dockerfile: Dockerfile
+      # الباث ديال مشروع Nuxt
     container_name: nuxt-app-dev
     ports:
       - "3000:3000"

@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['*',],
+    'paths' => ['*'],
 
     'allowed_methods' => ['*'],
 
-     'allowed_origins' => explode(',', env('ALLOWED_ORIGINS', '')),
+    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:3000')],
 
     'allowed_origins_patterns' => [],
 
